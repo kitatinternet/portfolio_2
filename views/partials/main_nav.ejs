@@ -1,0 +1,59 @@
+
+  <!-- Main Navigation -->
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #003300;">
+    <div class="container">
+        <!-- Custom Logo -->
+      <a class="navbar-brand" href="/home">
+        <img src="/Assets/images/logo_iamkit.png" alt="" height="35">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+
+          <% if (title == "Home") { %>
+          <li class="nav-item active">
+          <% } else { %>
+          <li class="nav-item">
+          <% } %>
+            <a class="nav-link" aria-current="page" href="/home"><i class="fas fa-indent"></i> Home </a>
+          </li>
+
+          <% if (title == "About Me") { %>
+          <li class="nav-item active">
+          <% } else { %>
+          <li class="nav-item">
+          <% } %>
+            <a class="nav-link" aria-current="page" href="/aboutMe"><i class="far fa-user"></i> About Me </a>
+          </li>
+
+          <% if (title == "Projects") { %>
+            <li class="nav-item active">
+            <% } else { %>
+            <li class="nav-item">
+            <% } %>
+            <a class="nav-link" aria-current="page" href="/projects"><i class="fas fa-folder-plus"></i> Projects </a>
+          </li>
+
+          <% if (title == "Services") { %>
+            <li class="nav-item active">
+            <% } else { %>
+            <li class="nav-item">
+            <% } %>
+            <a class="nav-link" aria-current="page" href="/services"><i class="far fa-clipboard"></i> Services </a>
+          </li>
+
+          <% if (title == "Contact Me") { %>
+            <li class="nav-item active">
+            <% } else { %>
+            <li class="nav-item">
+            <% } %>
+            <a class="nav-link" aria-current="page" href="/contactMe"><i class="far fa-address-book"></i> Contact Me </a>
+          </li>
+      </div>
+    </div>
+  </nav>
+

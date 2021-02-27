@@ -1,0 +1,33 @@
+
+<div class="container">
+    <form class="row g-3" action="/contactMe" method="POST">      
+
+    <div class="col-md-6">
+        <label for="inputFirstName" class="form-label">First name</label>
+        <input type="text" class="form-control" id="inputFirstName" name="inputFirstName">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputLastName" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="inputLastName" name="inputLastName">
+      </div>
+    <div class="col-md-6">
+      <label for="inputEmail" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail" name='inputEmail'>
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Phone Number</label>
+      <input type="text" class="form-control" id="inputPhoneNumber" name='inputPhoneNumber'>
+    </div>
+    <div class="col-12">
+      <label for="inputMessage" class="form-label">Message</label>
+      <input type="text" class="form-control" id="inputMessage" name ='inputMessage'><br>
+    </div>
+    
+    
+    <div class="col-12">
+        <input type="hidden" name="formStates" value="submitPost" />
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

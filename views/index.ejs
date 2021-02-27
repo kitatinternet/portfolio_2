@@ -1,0 +1,32 @@
+<%- include partials/header.ejs %>
+
+<%- include partials/main_nav.ejs %>
+
+  <main class="container">
+    <div class="jumbotron p-1">
+      <h4 class="display-6"> <%= title %> > </h4>
+    </div>
+  </main>
+
+  <% if (title == "About Me") { %>
+    <%- include partials/about_me.ejs %>
+  <% } %>
+
+  <% if (title == "Projects") { %>
+    <%- include partials/projects.ejs %>
+  <% } %>
+
+  <% if (title == "Services") { %>
+    <%- include partials/services.ejs %>
+  <% } %>
+
+  <% if (title == "Contact Me") { %>
+    <%- include partials/contactMe.ejs %>
+  <% } %>
+
+  <%- include partials/bottom_nav.ejs %>
+
+  <%- include partials/footer.ejs %>
+
+
+

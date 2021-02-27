@@ -1,0 +1,87 @@
+<%- include partials/header.ejs %>
+
+<%- include partials/main_nav.ejs %>
+
+  <main class="container">
+    <div class="jumbotron p-1">
+        <h4 class="display-6"> <%= title %> ></h4>
+    </div>
+  </main>
+
+  <!-- Mission Statement -->
+  <% if (sPost == "submitPost") { %>
+  <main class="container">
+      
+    <p class="lead">
+        Received following info, please check:
+      </p>
+    <dl class="row">
+        <dt class="col-sm-3">First name</dt>
+        <dd class="col-sm-9">
+            <p><%= fName %></p>
+        </dd>
+      
+        <dt class="col-sm-3">Last name</dt>
+        <dd class="col-sm-9">
+          <p><%= lName %></p>
+        </dd>
+      
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">
+          <p><%= eMail %></p>
+        </dd>
+      
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9">
+          <p><%= pNumber %></p>
+        </dd>
+      
+        <dt class="col-sm-3">Message</dt>
+        <dd class="col-sm-9">
+          <p><%= message %></p>
+        </dd>
+      </dl>
+  </main>
+  <% } else { %>
+
+  <!-- Welcome message and link -->
+  <main class="container">
+    <p class="lead">
+        This is my Personal Portfolio Website using ExpressJS and EJS.
+      </p>
+    <dl class="row">
+        <dt class="col-sm-3"><a href="/aboutMe" class="link-primary" >About Me</a></dt>
+        <dd class="col-sm-9">
+            <p>A short paragraph about who am i.</p>
+            <p>Resume.</p>
+        </dd>
+      
+        <dt class="col-sm-3"><a href="/projects" class="link-primary">Projects</a></dt>
+        <dd class="col-sm-9">
+          <p>Current and past projects</p>
+        </dd>
+      
+        <dt class="col-sm-3"><a href="/services" class="link-primary">Services</a></dt>
+        <dd class="col-sm-9">
+          <p>Services offer</p>
+        </dd>
+      
+        <dt class="col-sm-3"><a href="/contactMe" class="link-primary">Contact Me</a></dt>
+        <dd class="col-sm-9">
+          <p>Call me</p>
+        </dd>
+      </dl>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+  </main>
+  <% } %>
+
+  <%- include partials/bottom_nav.ejs %>
+
+  <%- include partials/footer.ejs %>
+
+
+
