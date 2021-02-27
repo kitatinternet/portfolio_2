@@ -29,6 +29,7 @@ mongoDB.once('open',()=>{
 let indexRouter = require('../routes/index');
 let homeRouter = require('../routes/home');
 let buninessRouter = require('../routes/business');
+//let buninessRouter = require('../routes/business');
 //let usersRouter = require('./routes/users');
 
 let app = express();
@@ -41,13 +42,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.static(path.join(__dirname, '../node_modules')));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 app.use('/home', homeRouter);
-app.use('/business-list', buninessRouter);
+app.use('/business', buninessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

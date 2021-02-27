@@ -46,6 +46,14 @@
             <a class="nav-link" aria-current="page" href="/services"><i class="far fa-clipboard"></i> Services </a>
           </li>
 
+          <% if (title == "Business") { %>
+            <li class="nav-item active">
+            <% } else { %>
+            <li class="nav-item">
+            <% } %>
+            <a class="nav-link" aria-current="page" href="/business/list"><i class="fas fa-handshake-slash"></i> Business </a>
+          </li>
+
           <% if (title == "Contact Me") { %>
             <li class="nav-item active">
             <% } else { %>
