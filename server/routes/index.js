@@ -7,8 +7,10 @@
  */
 
 
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+
+let indexController = require('../controllers/index');
 
 let fName = '';
 let lName = '';
@@ -18,19 +20,9 @@ let message = '';
 let sPost = '';
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('home', 
-  { title: 'Home',
-  fName:fName,
-  lName:lName,
-  eMail:eMail,
-  pNumber:pNumber,
-  message:message,
-  sPost:sPost  });
-  sPost = '';
-});
+router.get('/', indexController.displayHomePage);
 
-/* GET home page. */
+/* GET home page. received contectMe result*/
 router.get('/home', function(req, res, next) {
   res.render('home', 
   { title: 'Home',
@@ -45,28 +37,16 @@ router.get('/home', function(req, res, next) {
 });
 
 /* GET aboutMe page. */
-router.get('/aboutMe', function(req, res, next) {
-  res.render('index', 
-  { title: 'About Me' });
-});
+router.get('/aboutMe', indexController.displayAboutMePage);
 
 /* GET projects page. */
-router.get('/projects', function(req, res, next) {
-  res.render('index', 
-  { title: 'Projects' });
-});
+router.get('/projects', indexController.displayProjectsPage);
 
 /* GET services page. */
-router.get('/services', function(req, res, next) {
-  res.render('index', 
-  { title: 'Services' });
-});
+router.get('/services', indexController.displayServicesPage);
 
 /* GET contactMe page. */
-router.get('/contactMe', function(req, res, next) {
-  res.render('index', 
-  { title: 'Contact Me' });
-});
+router.get('/contactMe', indexController.displayContactMePage);
 
 /* Post contactMe page. */
 router.post('/contactMe', function(req, res, next) {
