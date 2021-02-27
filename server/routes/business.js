@@ -6,7 +6,8 @@ let mongoose = require('mongoose');
 let Business = require('../models/business');
 
 /* GET Route for the Business Contect List page - READ Operation */
-router.get('/', (req, res, next) =>{
+var mysort = { name: 1 };
+router.get('/', (req, res, next) =>{    
     Business.find((err, contectList) => {
         if(err)
         {
@@ -18,7 +19,7 @@ router.get('/', (req, res, next) =>{
             res.render('business/list', {title:'Business Contect', ContectList: contectList});
             
         }
-    });
+    }).sort(mysort);
 });
 
 router.get('/list', (req, res, next) =>{
@@ -33,7 +34,7 @@ router.get('/list', (req, res, next) =>{
             res.render('business/list', {title:'Business Contect', ContectList: contectList});
             
         }
-    });
+    }).sort(mysort);
 });
 
 /* GET Route for displaying the Add page - CREATE Operation */
@@ -64,24 +65,24 @@ router.post('/add', (req, res, next) => {
 });
 
 /* GET Route for displaying the Edit page - UPDATE Operation */
-router.get('/edit/:id', (req, res, next) => {
+router.get('/update/:id', (req, res, next) => {
     let id = req.params.id;
 
-    Business.findById(id,(err,businessToEdit) => {
+    Business.findById(id,(err,businessToUpdate) => {
         if(err)
         {
             console.log(err);
             res.end(err);
         }
         else{
-            //show the edit view
-            res.render('business/edit', {title: 'Edit Business Content', business: businessToEdit});
+            //show the update view
+            res.render('business/update', {title: 'Update Business Content', business: businessToUpdate});
         }
     });
 });
 
-/* POST Route for processing the Edit page - UPDATE Operation */
-router.post('/edit/:id', (req, res, next) => {
+/* POST Route for processing the Update page - UPDATE Operation */
+router.post('/update/:id', (req, res, next) => {
     let id = req.params.id;
 
     let updatedBusinessContent = Business({
