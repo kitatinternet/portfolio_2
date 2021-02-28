@@ -3,16 +3,33 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+//let jwt = require('jsonwebtoken');
+
+let passport = require('passport');
+
 //connect to our Business Model
-let Business = require('../models/business');
+//let Business = require('../models/business');
 
 let businessController = require('../controllers/business');
 
-/* GET Route for the Business Contect List page - READ Operation */
-var mysort = { name: 1 };
-router.get('/', businessController.displayBusinessContectList);
+// helper function for guard purposes
+function requireAuth(req, res, next)
+{
+    // check if the user is logged in
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login');
+    }
+    next();
+}
 
-router.get('/list', businessController.displayBusinessContectList);
+/* GET Route for the Business Contect List page - READ Operation */
+//var mysort = { name: 1 };
+
+// only list and update view need requireAuth 
+router.get('/', requireAuth, businessController.displayBusinessContectList);
+
+router.get('/list', requireAuth, businessController.displayBusinessContectList);
 
 /* GET Route for displaying the Add page - CREATE Operation */
 router.get('/add', businessController.displayAddPage);
@@ -21,7 +38,7 @@ router.get('/add', businessController.displayAddPage);
 router.post('/add', businessController.processAddPage);
 
 /* GET Route for displaying the Edit page - UPDATE Operation */
-router.get('/update/:id', businessController.displayUpdatePage);
+router.get('/update/:id', requireAuth, businessController.displayUpdatePage);
 
 /* POST Route for processing the Update page - UPDATE Operation */
 router.post('/update/:id', businessController.processUpdatePage);
