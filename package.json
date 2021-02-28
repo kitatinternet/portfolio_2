@@ -5,6 +5,10 @@
   "scripts": {
     "start": "node ./server.js"
   },
+  "engines":{
+    "node": "^15.10.0",
+    "npm": "^7.5.3"
+    },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "bootstrap": "^4.6.0",
@@ -31,5 +35,17 @@
     "@types/passport": "^1.0.6",
     "@types/passport-local": "^1.0.33",
     "@types/passport-local-mongoose": "^4.0.13"
-  }
+  },
+  "description": "A websit for COMP229 lab2",
+  "main":"server.js",
+  "repository":{
+    "type": "git",
+    "url": "git+https://github.com/kitatinternet/portfolio_2.git"
+  },
+  "author": "Chun Kit Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kitatinternet/portfolio_2/issues"
+  },
+  "homepage": "https://github.com/kitatinternet/portfolio_2#readme"
 }
