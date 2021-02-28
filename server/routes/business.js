@@ -1,3 +1,10 @@
+/**
+ * @file 
+ * business.js
+ *
+ * Chun Kit Lam, 301158152, 28Feb2021
+ * COMP229–Web Application Development Assignment 2
+ */
 const { request } = require('express');
 let express = require('express');
 let router = express.Router();
@@ -41,7 +48,7 @@ router.post('/add', businessController.processAddPage);
 router.get('/update/:id', requireAuth, businessController.displayUpdatePage);
 
 /* POST Route for processing the Update page - UPDATE Operation */
-router.post('/update/:id', businessController.processUpdatePage);
+router.post('/update/:id', requireAuth, businessController.processUpdatePage);
 
 /* GET to perform Deletion - DELETE Operation */
 router.get('/delete/:id', businessController.performDelete);

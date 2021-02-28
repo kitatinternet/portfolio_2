@@ -1,3 +1,10 @@
+/**
+ * @file 
+ * business.js
+ *
+ * Chun Kit Lam, 301158152, 28Feb2021
+ * COMP229–Web Application Development Assignment 2
+ */
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -15,21 +22,26 @@ module.exports.displayBusinessContectList =  (req, res, next) =>{
         else
         {
             //console.log(contectList);
-            res.render('business/list', {title:'Business Contect', ContectList: contectList});
+            res.render('business/list', 
+            {title:'Business Contect',
+             ContectList: contectList, 
+             displayName: req.user ? req.user.displayName : ''});
             
         }
     }).sort(mysort);
 }
 
 module.exports.displayAddPage = (req, res, next)=>{
-    res.render('business/add', {title:'Add Business Contect'});
+    res.render('business/add', {title:'Add Business Contect', 
+    displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.processAddPage = (req, res, next) => {
     let newBusinessContent = Business({
         "name":req.body.name,
         "number":req.body.number,
-        "email":req.body.email
+        "email":req.body.email, 
+        displayName: req.user ? req.user.displayName : ''
     });
 
     Business.create(newBusinessContent,(err, Business) => {
@@ -57,7 +69,8 @@ module.exports.displayUpdatePage = (req, res, next) => {
         }
         else{
             //show the update view
-            res.render('business/update', {title: 'Update Business Content', business: businessToUpdate});
+            res.render('business/update', {title: 'Update Business Content', business: businessToUpdate, 
+            displayName: req.user ? req.user.displayName : ''});
         }
     });
 }

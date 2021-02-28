@@ -2,12 +2,13 @@
  * @file 
  * home.js
  *
- * Chun Kit Lam, 301158152, 12Feb2021
- * COMP229–Web Application Development Assignment 1
+ * Chun Kit Lam, 301158152, 28Feb2021
+ * COMP229–Web Application Development Assignment 2
  */
 
 var express = require('express');
 var router = express.Router();
+let mongoose = require('mongoose');
 
 let fName = '';
 let lName = '';
@@ -26,7 +27,8 @@ router.get('/home', function(req, res, next) {
     eMail:eMail,
     pNumber:pNumber,
     message:message,
-    sPost:sPost
+    sPost:sPost, 
+    displayName: req.user ? req.user.displayName : ''
     });
     sPost = '';
 });

@@ -1,3 +1,10 @@
+/**
+ * @file 
+ * index.js
+ *
+ * Chun Kit Lam, 301158152, 28Feb2021
+ * COMP229–Web Application Development Assignment 2
+ */
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -22,24 +29,25 @@ module.exports.displayHomePage = (req, res,next) => {
     eMail:eMail,
     pNumber:pNumber,
     message:message,
-    sPost:sPost  });
+    sPost:sPost, 
+    displayName: req.user ? req.user.displayName : ''  });
     sPost = '';
   }
 
   module.exports.displayAboutMePage = (req, res,next) => {
-    res.render('index', { title: 'About Me'});
+    res.render('index', { title: 'About Me', displayName: req.user ? req.user.displayName : ''});
   }
 
   module.exports.displayProjectsPage = (req, res,next) => {
-    res.render('index', { title: 'Projects'});
+    res.render('index', { title: 'Projects', displayName: req.user ? req.user.displayName : ''});
   }
 
   module.exports.displayServicesPage = (req, res,next) => {
-    res.render('index', { title: 'Services'});
+    res.render('index', { title: 'Services', displayName: req.user ? req.user.displayName : ''});
   }
 
   module.exports.displayContactMePage = (req, res,next) => {
-    res.render('index', { title: 'Contact Me'});
+    res.render('index', { title: 'Contact Me', displayName: req.user ? req.user.displayName : ''});
   }
 
   module.exports.displayLoginPage = (req, res, next) => {

@@ -4,7 +4,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #003300;">
     <div class="container">
         <!-- Custom Logo -->
-      <a class="navbar-brand" href="/home">
+      <a class="navbar-brand" href="/">
         <img src="/Assets/images/logo_iamkit.png" alt="" height="35">
       </a>
 
@@ -19,7 +19,7 @@
           <% } else { %>
           <li class="nav-item">
           <% } %>
-            <a class="nav-link" aria-current="page" href="/home"><i class="fas fa-indent"></i> Home </a>
+            <a class="nav-link" aria-current="page" href="/"><i class="fas fa-indent"></i> Home </a>
           </li>
 
           <% if (title == "About Me") { %>
@@ -61,6 +61,15 @@
             <% } %>
             <a class="nav-link" aria-current="page" href="/contactMe"><i class="far fa-address-book"></i> Contact Me </a>
           </li>
+
+          <% if(typeof displayName == 'string' && displayName) { %>            
+            <li class="nav-item"><a href="/logout" class="nav-link">
+              <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
+              <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Hi, <%= displayName %> </li>
+          <% } else { %>
+            <li class="nav-item"><a href="/login" class="nav-link">
+              <i class="fas fa-lg fa-sign-in-alt"></i> Login</a></li>
+          <% } %> 
       </div>
     </div>
   </nav>
